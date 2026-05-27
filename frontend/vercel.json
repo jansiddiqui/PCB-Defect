@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://pcb-defect-api.onrender.com/$1" }
+    { "source": "/api/(.*)", "destination": "https://pcb-defect-3g24.onrender.com/$1" }
   ]
 }
