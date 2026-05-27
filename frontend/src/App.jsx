@@ -1,4 +1,8 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
+
+// API base URL: in production uses Render directly (set VITE_API_URL in Vercel env)
+// In dev: uses /api which Vite proxy forwards to localhost:8000
+const API_BASE = import.meta.env.VITE_API_URL || '/api'
 import './App.css'
 import {
   LogoPCB, IconUpload, IconScan, IconChart, IconMapPin,
@@ -268,7 +272,7 @@ export default function App() {
     setIsLoading(true); setError(null)
     try {
       const fd = new FormData(); fd.append('file', imageFile)
-      const res = await fetch('/api/predict', { method: 'POST', body: fd })
+      const res = await fetch(`${API_BASE}/predict`, { method: 'POST', body: fd })
       if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'Prediction failed') }
       setResult(await res.json())
     } catch (err) { setError(err.message) }
