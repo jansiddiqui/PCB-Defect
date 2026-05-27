@@ -130,6 +130,10 @@ async def predict_defect(
 
     # ── Call the ML model ─────────────────────────────────────────────────────
     try:
+        # Diagnostic log — visible in Render logs
+        print(f"[PREDICT] file={file.filename!r} content_type={file.content_type!r} "
+              f"size={len(contents)} bytes image_size={image.size}", flush=True)
+
         result = predict(image, file.filename, manual_bbox=manual_bbox)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Prediction error: {str(e)}")
