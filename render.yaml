@@ -9,6 +9,6 @@ services:
     startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: HF_REPO
-        value: your-huggingface-username/PCB-Defect   # ← UPDATE THIS
+        value: jansiddiqui/PCB-Defect   # ← UPDATE THIS
       - key: PYTHON_VERSION
         value: "3.11"
