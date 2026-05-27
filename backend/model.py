@@ -153,12 +153,17 @@ def predict(image: Image.Image, filename: str, manual_bbox=None):
             has_annotation = True
             source = f"annotation ({len(bboxes)} region(s))"
         else:
-            # Fallback: centre crop
-            cx, cy = img_w // 2, img_h // 2
-            size   = min(img_w, img_h) // 4
-            bboxes = [(cx - size, cy - size, cx + size, cy + size)]
+            # Fallback: scan 4 quadrants of the image and average predictions
+            # Much better than a single centre crop — covers the whole PCB board
+            hw, hh = img_w // 2, img_h // 2
+            bboxes = [
+                (0,  0,  hw,    hh   ),   # top-left
+                (hw, 0,  img_w, hh   ),   # top-right
+                (0,  hh, hw,    img_h),   # bottom-left
+                (hw, hh, img_w, img_h),   # bottom-right
+            ]
             has_annotation = False
-            source = "centre crop (no annotation found)"
+            source = "quadrant scan (no annotation found)"
 
     print(f"Predicting: {filename} | Source: {source}", flush=True)
 
