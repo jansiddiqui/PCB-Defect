@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "https://pcb-defect-api.onrender.com/$1" }
+  ]
+}

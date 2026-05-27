@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ── Theme Variables ───────────────────────────────────────────── */
+:root {
+  /* Accent */
+  --accent:        #7c3aed;
+  --accent-light:  #a78bfa;
+  --accent-glow:   rgba(124, 58, 237, 0.18);
+  --accent-btn:    #6d28d9;
+  --success:       #22c55e;
+  --warning:       #f59e0b;
+  --danger:        #ef4444;
+
+  /* Radius & Shadow */
+  --radius:    18px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
+  --transition: 0.2s ease;
+}
+
+/* ── DARK Theme (default) ─────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:            #0d0d14;
+  --bg-card:       #13131f;
+  --bg-card-2:     #1a1a28;
+  --bg-input:      #0d0d14;
+  --border:        #252538;
+  --border-hover:  #3a3a55;
+  --text-primary:  #f0f0f8;
+  --text-secondary:#9090b0;
+  --text-muted:    #55556a;
+  --shadow:        0 8px 40px rgba(0,0,0,0.5);
+  --shadow-sm:     0 2px 12px rgba(0,0,0,0.3);
+  --header-bg:     rgba(13,13,20,0.85);
+  --upload-bg:     rgba(124,58,237,0.04);
+}
+
+/* ── LIGHT Theme ──────────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg:            #f3f4fb;
+  --bg-card:       #ffffff;
+  --bg-card-2:     #f8f8ff;
+  --bg-input:      #f3f4fb;
+  --border:        #e2e2f0;
+  --border-hover:  #c4c4e0;
+  --text-primary:  #12122a;
+  --text-secondary:#5050780;
+  --text-muted:    #9090b0;
+  --shadow:        0 8px 40px rgba(100,80,200,0.08);
+  --shadow-sm:     0 2px 12px rgba(100,80,200,0.06);
+  --header-bg:     rgba(255,255,255,0.9);
+  --upload-bg:     rgba(124,58,237,0.03);
+}
+
+/* ── Reset & Base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }

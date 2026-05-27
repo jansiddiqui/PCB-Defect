@@ -1,0 +1,14 @@
+# render.yaml — Render.com deployment config
+# Render reads this file and auto-configures the deployment
+
+services:
+  - type: web
+    name: pcb-defect-api
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: HF_REPO
+        value: your-huggingface-username/PCB-Defect   # ← UPDATE THIS
+      - key: PYTHON_VERSION
+        value: "3.11"
