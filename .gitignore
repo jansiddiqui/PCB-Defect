@@ -1,0 +1,62 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ========================
+# Virtual Environment
+# ========================
+venv/
+env/
+.venv/
+.env
+
+# ========================
+# Large Dataset (download separately)
+# ========================
+PCB_DATASET/
+
+# ========================
+# Generated Output Masks
+# ========================
+output_masks/
+
+# ========================
+# Trained Model Weights
+# ========================
+# pcb_defect_model.pth is ~16MB
+# Option 1: Use Git LFS to track it
+# Option 2: Comment out the line below and push it directly (if < 100MB)
+# Option 3: Upload to Hugging Face Hub / Google Drive and link in README
+pcb_defect_model.pth
+
+# ========================
+# IDE / Editor Files
+# ========================
+.vscode/
+.qodo/
+.idea/
+*.suo
+*.user
+
+# ========================
+# OS Files
+# ========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ========================
+# Logs & Temp
+# ========================
+*.log
+*.tmp
+*.bak
