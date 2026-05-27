@@ -15,7 +15,7 @@ Then visit:
 
 from fastapi import FastAPI, File, UploadFile, HTTPException, Form
 from fastapi.middleware.cors import CORSMiddleware
-from PIL import Image
+from PIL import Image, ImageOps
 import io
 from typing import Optional
 
@@ -116,7 +116,9 @@ async def predict_defect(
     # io.BytesIO() wraps the bytes in a file-like object.
     try:
         contents = await file.read()
-        image    = Image.open(io.BytesIO(contents)).convert("RGB")
+        image    = Image.open(io.BytesIO(contents))
+        image    = ImageOps.exif_transpose(image)   # Fix mobile EXIF rotation
+        image    = image.convert("RGB")
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Could not read image: {str(e)}")
 
